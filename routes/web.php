@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/renungan/{renungan:id}', [RenunganController::class, 'show'])->name('renungan.show');
+Route::get('/renungan/{renungan:id}', [RenunganController::class, 'show'])->name('renungan.show');// menampikan renungan 
+Route::get('/kegiatan/{kegiatan:id}', [KegiatanController::class, 'show'])->name('kegiatan.show');// menampikan kegiatan
+

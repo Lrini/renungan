@@ -27,18 +27,32 @@
 					<h2 class="mt-3 content-title">Kegiatan Dan Seminar</h2>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 mb-5">
-		<div class="blog-item">
-			<img src="/images/1.jpg" alt="" class="img-fluid rounded">
-
-			<div class="blog-item-content bg-white p-4">
-				<h3 class="mt-3 mb-3"><a href="blog-single.html">Improve design with typography?</a></h3>
-				<p class="mb-4">Non illo quas blanditiis repellendus laboriosam minima animi. Consectetur accusantium pariatur repudiandae!</p>
-
-				<a href="blog-single.html" class="btn btn-small btn-main btn-round-full">Learn More</a>
-			</div>
 		</div>
 	</div>
-		</div>
-	</div>
+	 <div class="row">
+            @if(isset($kegiatans) && count($kegiatans) > 0)
+                @foreach($kegiatans as $kegiatan)
+                    <div class="col-lg-6 col-md-6 mb-5">
+                        <div class="blog-item h-100 d-flex flex-column">
+                            <img src="/images/1.jpg" alt="Kegiatan" 
+                                 class="img-fluid rounded" height="250px" style="object-fit: cover;">
+                            <div class="blog-item-content bg-white p-4 d-flex flex-column flex-grow-1">
+                                <h3 class="mt-3 mb-3">
+                                    <a href="#">{{$kegiatan->nama}}</a>
+                                </h3>
+                                <p class="mb-4 flex-grow-1">{{$kegiatan->slug}}</p>
+                                <a href="/kegiatan/{{ $kegiatan->id }}" class="btn btn-small btn-main btn-round-full mt-auto">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="col-12">
+                    <div class="text-center p-5">
+                        <h4>Tidak ada kegiatan untuk ditampilkan</h4>
+                        <p class="text-muted">Belum ada kegiatan atau seminar yang tersedia saat ini.</p>
+                    </div>
+                </div>
+            @endif
+        </div>
 @endsection
