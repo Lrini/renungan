@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/renungan/{renungan:id}', [RenunganController::class, 'show'])->name('renungan.show');// menampikan renungan 
 Route::get('/kegiatan/{kegiatan:id}', [KegiatanController::class, 'show'])->name('kegiatan.show');// menampikan kegiatan
 
+Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest'); // untuk halaman login
+Route::post('/login',[LoginController::class,'authenticate']);// untuk proses autentikasi login
