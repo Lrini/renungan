@@ -5,6 +5,7 @@ use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,10 @@ Route::get('/kegiatan/{kegiatan:id}', [KegiatanController::class, 'show'])->name
 
 Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest'); // untuk halaman login
 Route::post('/login',[LoginController::class,'authenticate']);// untuk proses autentikasi login
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/home', function () {
+    return redirect()->route('dashboard');
+});
