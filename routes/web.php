@@ -5,7 +5,7 @@ use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::post('/login',[LoginController::class,'authenticate']);// untuk proses au
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [DashboardPostController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('/home', function () {
     return redirect()->route('dashboard');
 });
