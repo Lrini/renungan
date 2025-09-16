@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\RenunganPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::get('/dashboard', [DashboardPostController::class, 'index'])->name('dashb
 Route::get('/home', function () {
     return redirect()->route('dashboard');
 });
+
+Route::resource('/dashboard/renungan', RenunganPostController::class)->middleware('auth'); // untuk halaman renungan post

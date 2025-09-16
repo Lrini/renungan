@@ -8,13 +8,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
+            <a class="nav-link {{ request()->is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/renungan">
               <span data-feather="file-text"></span>
               Renungan
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
+            <a class="nav-link {{ request()->is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/kegiatan">
               <span data-feather="file-text"></span>
               Kegiatan
             </a>
