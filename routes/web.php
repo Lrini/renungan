@@ -7,6 +7,7 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\RenunganPostController;
+use App\Http\Controllers\KegiatanPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::get('/home', function () {
 });
 
 Route::resource('/dashboard/renungan', RenunganPostController::class)->middleware('auth'); // untuk halaman renungan post
+Route::resource('/dashboard/kegiatan', KegiatanPostController::class)->middleware('auth'); // untuk halaman kegiatan post

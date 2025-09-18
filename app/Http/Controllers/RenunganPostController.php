@@ -74,7 +74,10 @@ class RenunganPostController extends Controller
      */
     public function show(Renungan $renungan)
     {
-        //
+         return view('dashboard.renungan.show',[
+            'renungans' => $renungan,
+            'title' => 'Renungan Details'
+        ])->with('success', 'Renungan retrieved successfully');
     }
 
     /**
@@ -85,7 +88,9 @@ class RenunganPostController extends Controller
      */
     public function edit(Renungan $renungan)
     {
-        //
+          return view('dashboard.renungan.edit',[
+            'renungans' => $renungan
+        ]);
     }
 
     /**
@@ -97,7 +102,34 @@ class RenunganPostController extends Controller
      */
     public function update(Request $request, Renungan $renungan)
     {
-        //
+        // Validation rules with nullable to allow partial updates
+        $rules = [
+            'judul' => 'sometimes|required|max:255',  //sometimes artinya field ini opsional
+            'ayat' => 'sometimes|required|max:255',
+            'tanggal' => 'sometimes|required|date',
+            'image' => 'sometimes|image|file|max:1024',
+            'isi' => 'sometimes|required'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        if (isset($validatedData['isi'])) {
+            $validatedData['excerpt'] = Str::limit(strip_tags($validatedData['isi']), 200);
+            $validatedData['isi'] = strip_tags($validatedData['isi']);
+        }
+
+        Renungan::where('id', $renungan->id)->update($validatedData);
+
+        return redirect('/dashboard/renungan')->with('success', 'Post has been updated successfully');
     }
 
     /**
@@ -108,6 +140,12 @@ class RenunganPostController extends Controller
      */
     public function destroy(Renungan $renungan)
     {
-        //
+        if($renungan->image){
+                Storage::delete($renungan->image);
+            }
+         Renungan::destroy($renungan->id); // simpan data post ke database
+        // Redirect ke halaman posts dengan pesan sukses
+
+        return redirect('/dashboard/renungan')->with('success', 'Post has been deleted successfully');
     }
 }
