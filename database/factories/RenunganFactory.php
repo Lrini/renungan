@@ -17,9 +17,9 @@ class RenunganFactory extends Factory
             'user_id' => 1,
             'judul' => $this->faker->sentence(),
             'ayat' => $this->faker->sentence(),
-            'isi' => $this->faker->paragraph(),
+            'isi' => $this->faker->paragraph(5,10),
             'tanggal' => $this->faker->date,
-            'slug' => $this->faker->slug,
+            'excerpt' => $this->faker->paragraph(),
         ];
     }
 }

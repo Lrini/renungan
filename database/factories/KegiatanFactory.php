@@ -18,8 +18,8 @@ class KegiatanFactory extends Factory
             'nama' => $this->faker->sentence(),
             'deskripsi' => $this->faker->paragraph(),
             'waktu' => $this->faker->date,
-            'slug' => $this->faker->slug,
             'tempat' => $this->faker->sentence(),
+            'excerpt' => $this->faker->paragraph(),
         ];
     }
 }

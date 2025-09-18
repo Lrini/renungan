@@ -18,10 +18,10 @@ class CreateKegiatansTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nama');
             $table->string('deskripsi');
-            $table->string('slug');
             $table->string('tempat');
             $table->string('waktu');
             $table->string('image')->nullable(); 
+            $table->text('excerpt');
             $table->timestamps();
         });
     }

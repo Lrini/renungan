@@ -43,22 +43,27 @@ class RenunganPostController extends Controller
     {
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
+            'ayat' => 'required|max:255',
             'image' => 'image|file|max:1024', // maksimal ukuran file
-            'body' => 'required'
+            'tanggal' => 'required|date',
+            'isi' => 'required'
         ]);
         if ($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('post-images'); // simpan file gambar ke folder post-images
         }
         // Tambahkan user_id ke dalam data yang akan disimpan
-        // ambil user yang sedang login dan simpan id-nya   
-        // 'excerpt' diambil dari body, maksimal 200 karakter
+        // ambil user yang sedang login dan simpan id-nya
+        // 'excerpt' diambil dari isi, maksimal 200 karakter
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->isi), 200);
+
+        // Strip HTML tags from isi before saving
+        $validatedData['isi'] = strip_tags($validatedData['isi']);
 
         Renungan::create($validatedData); // simpan data post ke database
 
         // Redirect ke halaman posts dengan pesan sukses
-        return redirect('/dashboard/Renungan')->with('success', 'Post has been created successfully');
+        return redirect('/dashboard/renungan')->with('success', 'Post has been created successfully');
     }
 
     /**

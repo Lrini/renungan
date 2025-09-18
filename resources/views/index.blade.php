@@ -7,14 +7,14 @@
 					@foreach ($renungans as $renungan )
 						<span class="h6 text-color">Renungan Harian</span>
 						<h2 class="mt-3 mb-4 position-relative content-title">{{ $renungan->judul }}</h2>
-						<p class="mb-5">{{ $renungan->isi }}</p>
+						<p class="mb-5">{{ $renungan->excerpt }}</p>
 						<a href="/renungan/{{ $renungan->id }}" class="btn btn-main btn-round-full">Read more...</a>
 					@endforeach
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="about-item-img">
-					<img src="/images/home-7.jpg" alt="" class="img-fluid">
+						<img src="{{ asset('storage/' . $renungan->image) }}" alt="" class="img-fluid rounded" style="width: 800px; height: 400px; object-fit: cover;">
 				</div>
 			</div>
 		</div>

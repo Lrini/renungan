@@ -18,9 +18,9 @@ class CreateRenungansTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('judul');
             $table->string('ayat');
-            $table->string('isi');
-            $table->string('slug');
+            $table->text('isi');
             $table->string('image')->nullable(); 
+            $table->string('excerpt', 255);
             $table->string('tanggal');
             $table->timestamps();
         });
