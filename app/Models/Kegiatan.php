@@ -9,8 +9,7 @@ use App\Models\User;
 class Kegiatan extends Model
 {
     use HasFactory;
-    protected $table = 'kegiatans';
-    protected $fillable = ['nama','deskripsi','waktu','slug'];
+    protected $guarded = ['id']; 
 
 
     public function user()

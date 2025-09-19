@@ -17,11 +17,11 @@ class CreateKegiatansTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('nama');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('tempat');
             $table->string('waktu');
             $table->string('image')->nullable(); 
-            $table->text('excerpt');
+             $table->string('excerpt', 255);
             $table->timestamps();
         });
     }
