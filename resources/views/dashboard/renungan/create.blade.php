@@ -77,6 +77,5 @@
             reader.readAsDataURL(file);
         }
     }
-
 </script>
 @endsection

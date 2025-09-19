@@ -78,5 +78,11 @@
         }
     }
 
+    // Live preview for Trix editor
+    document.addEventListener('trix-change', function(e) {
+        const preview = document.getElementById('deskripsi-preview');
+        preview.innerHTML = e.target.value;
+    });
+
 </script>
 @endsection

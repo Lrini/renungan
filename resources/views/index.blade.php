@@ -34,13 +34,13 @@
                 @foreach($kegiatans as $kegiatan)
                     <div class="col-lg-6 col-md-6 mb-5">
                         <div class="blog-item h-100 d-flex flex-column">
-                            <img src="/images/1.jpg" alt="Kegiatan" 
-                                 class="img-fluid rounded" height="250px" style="object-fit: cover;">
+                            <img src="{{ asset('storage/' . $kegiatan->image) }}" alt="Kegiatan" 
+                                 class="img-fluid rounded" style="width: 500px; height: 300px; object-fit: cover;">
                             <div class="blog-item-content bg-white p-4 d-flex flex-column flex-grow-1">
                                 <h3 class="mt-3 mb-3">
                                     <a href="#">{{$kegiatan->nama}}</a>
                                 </h3>
-                                <p class="mb-4 flex-grow-1">{{$kegiatan->slug}}</p>
+                                <p class="mb-4 flex-grow-1">{{$kegiatan->excerpt}}</p>
                                 <a href="/kegiatan/{{ $kegiatan->id }}" class="btn btn-small btn-main btn-round-full mt-auto">Learn More</a>
                             </div>
                         </div>

@@ -58,7 +58,8 @@ class RenunganPostController extends Controller
         $validatedData['excerpt'] = Str::limit(strip_tags($request->isi), 200);
 
         // Strip HTML tags from isi before saving
-        $validatedData['isi'] = strip_tags($validatedData['isi']);
+      //  $validatedData['isi'] = strip_tags($validatedData['isi']);
+      $validatedData['isi'] = $request->isi;
 
         Renungan::create($validatedData); // simpan data post ke database
 
@@ -124,7 +125,7 @@ class RenunganPostController extends Controller
 
         if (isset($validatedData['isi'])) {
             $validatedData['excerpt'] = Str::limit(strip_tags($validatedData['isi']), 200);
-            $validatedData['isi'] = strip_tags($validatedData['isi']);
+            $validatedData['isi'] = $request->isi;
         }
 
         Renungan::where('id', $renungan->id)->update($validatedData);

@@ -3,7 +3,7 @@
 @section('container')
 <div class="col-lg-12 mb-5">
 		<div class="single-blog-item">
-			<img src="/images/2.jpg" alt="" class="img-fluid rounded">
+			<img src="{{ asset('storage/' . $kegiatan->image) }}" alt="" class="img-fluid rounded " style="width: 1600px; height: 400px; object-fit: cover;">
 
 			<div class="blog-item-content bg-white p-5">
 				<div class="blog-item-meta bg-gray py-1 px-2">

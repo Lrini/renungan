@@ -12,7 +12,7 @@
 				</div> 
 
 				<h2 class="mt-3 mb-4">{{ $renungan->judul }}</h2>
-				<p>{{ $renungan->isi }}</p>
+				 {!! $renungan->isi !!}
                 <a href="/" class="btn btn-main btn-round-full mt-3">Back to home</a>
 			</div>
 		</div>

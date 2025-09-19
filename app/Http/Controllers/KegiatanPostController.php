@@ -58,7 +58,8 @@ class KegiatanPostController extends Controller
         $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 200);
 
         // Strip HTML tags from isi before saving
-        $validatedData['deskripsi'] = strip_tags($validatedData['deskripsi']);
+       // $validatedData['deskripsi'] = strip_tags($validatedData['deskripsi']);
+        $validatedData['deskripsi'] = $request->deskripsi;
 
         Kegiatan::create($validatedData); // simpan data post ke database
 
@@ -123,7 +124,7 @@ class KegiatanPostController extends Controller
 
         if (isset($validatedData['deskripsi'])) {
             $validatedData['excerpt'] = Str::limit(strip_tags($validatedData['deskripsi']), 200);
-            $validatedData['deskripsi'] = strip_tags($validatedData['deskripsi']);
+            $validatedData['deskripsi'] = $request->deskripsi;
         }
 
         Kegiatan::where('id', $kegiatan->id)->update($validatedData);
