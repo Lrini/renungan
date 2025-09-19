@@ -129,7 +129,7 @@ class KegiatanPostController extends Controller
 
         Kegiatan::where('id', $kegiatan->id)->update($validatedData);
 
-        return redirect('/dashboard/kegiatana')->with('success', 'Post has been updated successfully');
+        return redirect('/dashboard/kegiatan')->with('success', 'Post has been updated successfully');
     }
 
     /**
