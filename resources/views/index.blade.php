@@ -14,7 +14,9 @@
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="about-item-img">
-						<img src="{{ asset('storage/' . $renungan->image) }}" alt="" class="img-fluid rounded" style="width: 800px; height: 400px; object-fit: cover;">
+						@if(isset($renungans) && count($renungans) > 0)
+							<img src="{{ asset('storage/' . $renungans[0]->image) }}" alt="" class="img-fluid rounded" style="width: 800px; height: 400px; object-fit: cover;">
+						@endif
 				</div>
 			</div>
 		</div>

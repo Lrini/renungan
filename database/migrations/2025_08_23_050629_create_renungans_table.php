@@ -21,7 +21,7 @@ class CreateRenungansTable extends Migration
             $table->text('isi');
             $table->string('image')->nullable(); 
             $table->string('excerpt', 255);
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

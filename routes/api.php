@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RenunganPostController;
+use App\Models\Renungan;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/renungan/debug', function () {
+    return Renungan::all();
+});
+
+Route::middleware('auth:sanctum')->get('/renungan/latest', [RenunganPostController::class, 'latest']);

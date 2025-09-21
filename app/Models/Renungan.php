@@ -12,6 +12,10 @@ class Renungan extends Model
 
     protected $guarded = ['id']; 
 
+    protected $casts = [
+        'tanggal' => 'date', // Laravel akan otomatis ubah ke Carbon date
+    ];  
+
      /**
      * Get the user that owns the Renungan
      *

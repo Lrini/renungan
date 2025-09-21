@@ -6,6 +6,8 @@ use App\Models\Renungan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class RenunganPostController extends Controller
 {
@@ -149,4 +151,43 @@ class RenunganPostController extends Controller
 
         return redirect('/dashboard/renungan')->with('success', 'Post has been deleted successfully');
     }
+
+    public function latest()
+    {
+        if (!auth()->check()) {
+            return response()->json(['success' => false, 'message' => 'Unauthorized'], 401);
+        }
+
+        try {
+            $renungan = Renungan::whereNotNull('tanggal')
+                ->orderBy('tanggal', 'desc')
+                ->orderBy('id', 'desc')
+                ->first();
+
+            if (!$renungan) {
+                // fallback to latest record by id if no record with non-null tanggal
+                $renungan = Renungan::orderBy('id', 'desc')->first();
+            }
+
+            if (!$renungan) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Tidak ada renungan'
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Renungan terbaru berhasil diambil',
+                'data' => $renungan
+            ], 200, [], JSON_PRETTY_PRINT);
+        } catch (\Exception $e) {
+            Log::error('Error fetching latest renungan: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat mengambil data renungan'
+            ], 500);
+        }
+    }
+
 }
