@@ -19,9 +19,9 @@ class CreateKegiatansTable extends Migration
             $table->string('nama');
             $table->text('deskripsi');
             $table->string('tempat');
-            $table->string('waktu');
+            $table->date('waktu');
             $table->string('image')->nullable(); 
-             $table->string('excerpt', 255);
+            $table->string('excerpt', 255);
             $table->timestamps();
         });
     }
