@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RenunganController;
 use App\Http\Controllers\HomeController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\RenunganPostController;
 use App\Http\Controllers\KegiatanPostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,8 @@ Route::post('/login',[LoginController::class,'authenticate']);// untuk proses au
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
+
+Route::resource('/dashboard/admin', AdminPostController::class)->except('show')->middleware('isAdmin');
 Route::get('/dashboard', [DashboardPostController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('/home', function () {
     return redirect()->route('dashboard');
