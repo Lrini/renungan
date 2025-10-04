@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminPostController extends Controller
 {
@@ -27,7 +28,7 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.create');
     }
 
     /**
@@ -38,7 +39,21 @@ class AdminPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('/dashboard/admin')->with('success', 'User created successfully');
     }
 
     /**
@@ -60,7 +75,10 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::findOrFail($id); // Mengambil data user berdasarkan ID atau gagal jika tidak ditemukan
+        return view('dashboard.admin.edit',[
+            'users' => $users
+        ]);
     }
 
     /**
@@ -72,7 +90,23 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,' . $id,
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return redirect('/dashboard/admin')->with('success', 'User updated successfully');
     }
 
     /**
@@ -81,8 +115,14 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user, $id)
     {
-        //
+        $this->authorize('admin'); // menggunakan gate untuk mengecek apakah user adalah admin
+
+        $user = User::findOrFail($id);
+        User::destroy($id); // hapus data user dari database
+        // Redirect ke halaman admin dengan pesan sukses
+
+        return redirect('/dashboard/admin')->with('success', 'User has been deleted successfully');
     }
 }

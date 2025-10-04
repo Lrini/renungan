@@ -30,7 +30,7 @@
                 <td>{{ $user->is_admin ? 'Admin' : 'User' }}</td>
                 <td>
                     <a href="/dashboard/admin/{{$user->id}}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-                    <form action="/dashboard/admin/{{ $user->id }}" method="post" class="d-inline">
+                   <form action="/dashboard/admin/{{ $user->id}}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="badge bg-danger border-0" onclick="return confirm('Are you sure')"><span data-feather="x-circle"></span></button>
