@@ -10,12 +10,13 @@
 			<span class="burger-line"></span>
 		  </button>
 
-		  <div class="collapse navbar-collapse text-center" id="navbarsExample09">
+		  <div class="collapse navbar-collapse" id="navbarsExample09">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a></li>
 			  <li class="nav-item"><a class="nav-link {{ request()->is('khotbah') ? 'active' : '' }}" href="/khotbah">Khotbah</a></li>
-			  <li class="nav-item d-none d-lg-block"><a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="/login">Login</a></li>
+			  <li class="nav-item d-none d-md-block"><a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="/login">Login</a></li>
 			</ul>
 		  </div>
+
 		</div>
 	</nav>
