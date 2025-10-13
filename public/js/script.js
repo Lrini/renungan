@@ -100,4 +100,15 @@
 
 	
 
+	// Minimal JS for mobile menu toggle (fallback if Bootstrap JS fails)
+	document.addEventListener('DOMContentLoaded', function() {
+		const toggler = document.querySelector('.navbar-toggler');
+		const collapse = document.querySelector('.navbar-collapse');
+		if (toggler && collapse) {
+			toggler.addEventListener('click', function() {
+				collapse.classList.toggle('show');
+			});
+		}
+	});
+
 })(jQuery);

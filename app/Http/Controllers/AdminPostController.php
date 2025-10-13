@@ -95,12 +95,14 @@ class AdminPostController extends Controller
             'username' => 'required|string|max:255|unique:users,username,' . $id,
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8',
+            'is_admin' => 'required|boolean',
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->is_admin = $request->is_admin;
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
         }

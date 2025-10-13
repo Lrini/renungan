@@ -1,3 +1,18 @@
+/* Burger Menu Styles */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.burger-line {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
 /*=== MEDIA QUERY ===*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Poppins:300,400,600,700);
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700);
@@ -408,6 +423,10 @@ a:focus {
 
 #navbar .nav-link:hover, #navbar .nav-link:focus {
   color: #f75757;
+}
+
+#navbar .navbar-brand {
+  color: #fff !important;
 }
 
 #navbar .btn {
@@ -1414,6 +1433,56 @@ h3.quote::before {
     display: none;
     width: 100%;
     text-align: center;
+  }
+}
+
+/* Custom Responsive Enhancements */
+.hero-row {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 768px) {
+  .hero-row {
+    flex-direction: row;
+  }
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.meta-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  .p-5 {
+    padding: 1rem !important;
+  }
+  img {
+    max-height: 250px;
+  }
+  .meta-flex span {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  .content-title {
+    font-size: 1.25rem;
   }
 }
 

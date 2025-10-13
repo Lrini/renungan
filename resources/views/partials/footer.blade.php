@@ -4,7 +4,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-12 col-sm-12 text-center">
           <div class="copyright">
-            &copy; Copyright Reserved to <span class="text-color">GKPKR</span>
+            &copy; Copyright Reserved to <span class="text-color">Devosi</span>
           </div>
         </div>
       </div>

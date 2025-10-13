@@ -45,6 +45,13 @@
           </div>
         @enderror
       </div>
+      <div class="mb-3">
+        <label for="is_admin" class="form-label">Role</label>
+        <select class="form-select" id="is_admin" name="is_admin">
+          <option value="1" {{ old('is_admin', $users->is_admin ? '1' : '0') == '1' ? 'selected' : '' }}>Admin</option>
+          <option value="0" {{ old('is_admin', $users->is_admin ? '1' : '0') == '0' ? 'selected' : '' }}>User</option>
+        </select>
+      </div>
       <button type="submit" class="btn btn-primary">Update Post</button>
     </form>
 </div>

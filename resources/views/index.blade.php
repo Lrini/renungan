@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-lg-7 ">
 				<div class="section-title">
-					<span class="h6 text-color">GKPKR KUPANG</span>
+					<span class="h6 text-color">Devosi</span>
 					<h2 class="mt-3 content-title">Kegiatan Dan Seminar</h2>
 				</div>
 			</div>
