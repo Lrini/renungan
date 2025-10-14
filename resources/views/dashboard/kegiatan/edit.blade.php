@@ -28,7 +28,7 @@
         @enderror
       </div>
        <div class="mb-3">
-        <label for="waktu" class="form-label">Tempat pelaksanaan</label>
+        <label for="waktu" class="form-label">Waktu pelaksanaan</label>
         <input type="date" class="form-control @error('waktu') is-invalid  @enderror" id="waktu" name="waktu" value="{{ old('waktu', $kegiatans->waktu) }}" required autofocus  >
         @error('waktu')
           <div class="invalid-feedback">
