@@ -14,7 +14,7 @@ Aplikasi web berbasis Laravel untuk menyajikan renungan harian secara dinamis da
 
 - **Laravel** (PHP Framework)
 - **Blade** (Template Engine Laravel)
-- **Tailwind CSS** (Utility-first CSS framework)
+- **Boostrap** (Utility-first CSS framework)
 - **MySQL** (Database)
 - **JavaScript** (Interaktivitas dasar)
 
