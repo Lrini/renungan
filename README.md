@@ -7,7 +7,7 @@ Aplikasi web berbasis Laravel untuk menyajikan renungan harian secara dinamis da
 - 📖 **Renungan Harian**: Menampilkan konten renungan yang dapat diperbarui secara berkala.
 - 🔐 **Manajemen Pengguna**: Sistem login dan pengaturan peran (role) pengguna.
 - 🗂️ **Dashboard Admin**: Kelola konten renungan, pengguna, dan aktivitas lainnya.
-- 🎨 **Tampilan Responsif**: Menggunakan Blade dan Tailwind CSS untuk antarmuka yang modern dan mobile-friendly.
+- 🎨 **Tampilan Responsif**: Menggunakan Blade dan Boostrap CSS untuk antarmuka yang modern dan mobile-friendly.
 - 📅 **Kegiatan & Seminar**: (Fitur dalam pengembangan) Menampilkan jadwal kegiatan rohani.
 
 ## 🛠️ Teknologi yang Digunakan
