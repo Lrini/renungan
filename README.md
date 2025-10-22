@@ -12,7 +12,7 @@ Aplikasi web berbasis Laravel untuk menyajikan renungan harian secara dinamis da
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **Laravel** (PHP Framework)
+- **Laravel 8** (PHP Framework)
 - **Blade** (Template Engine Laravel)
 - **Boostrap** (Utility-first CSS framework)
 - **MySQL** (Database)
@@ -25,7 +25,6 @@ Pastikan kamu sudah menginstal:
 - PHP >= 8.0
 - Composer
 - MySQL
-- Node.js & npm (untuk frontend build)
 
 ## 🚀 Cara Instalasi
 # Clone repository
