@@ -22,6 +22,7 @@ class CreateKegiatansTable extends Migration
             $table->date('waktu');
             $table->string('image')->nullable(); 
             $table->string('excerpt', 255);
+             $table->string('slug')->unique();
             $table->timestamps();
         });
     }

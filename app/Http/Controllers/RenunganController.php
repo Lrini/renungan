@@ -13,9 +13,12 @@ class RenunganController extends Controller
     ]);
    }
 
-   public function show(Renungan $renungan){
-    return view('renungan',[
-        'renungan' => $renungan
-    ]);
-   }
+   public function show($slug)
+    {
+        $renungan = Renungan::where('slug', $slug)->firstOrFail();
+
+        return view('renungan', [
+            'renungan' => $renungan
+        ]);
+    }
 }

@@ -21,6 +21,7 @@ class CreateRenungansTable extends Migration
             $table->text('isi');
             $table->string('image')->nullable(); 
             $table->string('excerpt', 255);
+            $table->string('slug')->unique();
             $table->date('tanggal');
             $table->timestamps();
         });

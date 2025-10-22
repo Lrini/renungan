@@ -22,8 +22,8 @@ use App\Http\Controllers\KegiatanPostController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/renungan/{renungan:id}', [RenunganController::class, 'show'])->name('renungan.show');// menampikan renungan 
-Route::get('/kegiatan/{kegiatan:id}', [KegiatanController::class, 'show'])->name('kegiatan.show');// menampikan kegiatan
+Route::get('/renungan/{slug}', [RenunganController::class, 'show'])->name('renungan.show');// menampikan renungan 
+Route::get('/kegiatan/{slug}', [KegiatanController::class, 'show'])->name('kegiatan.show');// menampikan kegiatan
 
 Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest'); // untuk halaman login
 Route::post('/login',[LoginController::class,'authenticate']);// untuk proses autentikasi login

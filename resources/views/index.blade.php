@@ -8,7 +8,7 @@
 						<span class="h6 text-color">Renungan Harian</span>
 						<h2 class="mt-3 mb-4 position-relative content-title">{{ $renungan->judul }}</h2>
 						<p class="mb-5">{{ $renungan->excerpt }}</p>
-						<a href="/renungan/{{ $renungan->id }}" class="btn btn-main btn-round-full">Read more...</a>
+						<a href="/renungan/{{ $renungan->slug }}" class="btn btn-main btn-round-full">Read more...</a>
 					@endforeach
 				</div>
 			</div>
@@ -43,7 +43,7 @@
                                     <a href="#">{{$kegiatan->nama}}</a>
                                 </h3>
                                 <p class="mb-4 flex-grow-1">{{$kegiatan->excerpt}}</p>
-                                <a href="/kegiatan/{{ $kegiatan->id }}" class="btn btn-small btn-main btn-round-full mt-auto">Learn More</a>
+                                <a href="/kegiatan/{{ $kegiatan->slug }}" class="btn btn-small btn-main btn-round-full mt-auto">Learn More</a>
                             </div>
                         </div>
                     </div>

@@ -13,9 +13,12 @@ class KegiatanController extends Controller
         return view('kegiatan.index', compact('kegiatans')); // Mengirim data kegiatan ke view
     }
 
-    public function show(Kegiatan $kegiatan){
-    return view('kegiatan',[
-        'kegiatan' => $kegiatan
-    ]);
-   }
+    public function show($slug)
+    {
+        $kegiatans = Kegiatan::where('slug', $slug)->firstOrFail();
+
+        return view('kegiatan', [
+            'kegiatan' => $kegiatans
+        ]);
+    }
 }
