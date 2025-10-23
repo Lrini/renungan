@@ -15,7 +15,7 @@ class RenunganController extends Controller
 
    public function show($slug)
     {
-        $renungan = Renungan::where('slug', $slug)->firstOrFail();
+        $renungan = Renungan::where('slug', $slug)->firstOrFail(); 
 
         return view('renungan', [
             'renungan' => $renungan

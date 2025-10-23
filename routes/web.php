@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\RenunganPostController;
 use App\Http\Controllers\KegiatanPostController;
+use App\Http\Controllers\KhotbahController;
 
 
 /*
@@ -22,6 +23,10 @@ use App\Http\Controllers\KegiatanPostController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::get('/khotbah', [KhotbahController::class, 'index'])->name('khotbah.index');// menampikan khotbah
+Route::get('/khotbah/{slug}', [KhotbahController::class, 'show'])->name('khotbah.show');// menampikan khotbah
+
 Route::get('/renungan/{slug}', [RenunganController::class, 'show'])->name('renungan.show');// menampikan renungan 
 Route::get('/kegiatan/{slug}', [KegiatanController::class, 'show'])->name('kegiatan.show');// menampikan kegiatan
 

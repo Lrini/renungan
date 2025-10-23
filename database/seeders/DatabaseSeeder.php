@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Kegiatan;
 use App\Models\Renungan;
+use App\Models\Khotbah;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
          Kegiatan::factory(5)->create();
          Renungan::factory(5)->create();
+         Khotbah::factory(5)->create();
     }
 }
