@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\RenunganPostController;
 use App\Http\Controllers\KegiatanPostController;
 use App\Http\Controllers\KhotbahController;
+use App\Http\Controllers\KhotbahPostController;
 
 
 /*
@@ -44,3 +45,4 @@ Route::get('/home', function () {
 
 Route::resource('/dashboard/renungan', RenunganPostController::class)->middleware('auth'); // untuk halaman renungan post
 Route::resource('/dashboard/kegiatan', KegiatanPostController::class)->middleware('auth'); // untuk halaman kegiatan post
+Route::resource('/dashboard/khotbah', KhotbahPostController::class)->middleware('auth'); // untuk halaman khotbah post

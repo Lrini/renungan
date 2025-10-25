@@ -12,7 +12,7 @@
                 </div>
                 <a href="/dashboard/kegiatan" class="btn btn-success mt-3"><span data-feather="arrow-left"></span> Back to posts</a>
                 <a href="/dashboard/kegiatan/{{ $kegiatans->id }}/edit" class="btn btn-warning mt-3"><span data-feather="edit"></span >Edit</a>
-                 <form action="/dashboard/renungan/{{ $kegiatans->id }}" method="post" class="d-inline">
+                 <form action="/dashboard/kegiatan/{{ $kegiatans->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-danger mt-3" onclick="return confirm('Are you sure')"><span data-feather="x-circle"></span>Delete</button>

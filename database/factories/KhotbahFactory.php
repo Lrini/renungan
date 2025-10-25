@@ -16,6 +16,7 @@ class KhotbahFactory extends Factory
         $judul = $this->faker->sentence(4); // contoh: "Kasih Tuhan yang Kekal"
 
         return [
+            'user_id' => 1,
             'judul' => $judul,
             'pengkhotbah' => $this->faker->name(), // contoh: "Pdt. Markus"
             'tanggal' => $this->faker->dateTimeBetween('-6 months', 'now'),

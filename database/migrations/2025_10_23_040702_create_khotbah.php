@@ -15,6 +15,7 @@ class CreateKhotbah extends Migration
     {
         Schema::create('khotbahs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('judul');
             $table->string('pengkhotbah')->nullable();
             $table->date('tanggal')->nullable();
