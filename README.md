@@ -33,7 +33,6 @@ cd renungan
 
 # Install dependencies
 composer install
-npm install && npm run dev
 
 # Copy file environment
 cp .env.example .env
